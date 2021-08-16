@@ -9,7 +9,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-16.04, macOS-latest, windows-latest]
-        python-version: [2.7, 2.7-unicode, 3.5, 3.6, 3.7, 3.8]
+        python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
         include:
           - { os: ubuntu-16.04, python-version: 2.7, python-abis: "cp27-cp27m" }
           - { os: ubuntu-16.04, python-version: 2.7-unicode, python-abis: "cp27-cp27mu" }
