@@ -85,6 +85,10 @@ jobs:
             chmod +x archiconda.sh && \
             ./archiconda.sh -b -p /opt/conda && \
             export PATH="/opt/conda/bin:$PATH" && \
-            conda --version'
+            conda --version && \
+            ${{ env.py }} -m pip install --upgrade pip setuptools wheel coverage cython && \
+            ${{ env.py }} -m pip nstall -r requirements.txt && \
+            conda list && \
+            source ./.github/workflows/upload-packages.sh'
 
 
