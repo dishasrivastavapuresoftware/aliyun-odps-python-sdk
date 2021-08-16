@@ -11,13 +11,7 @@ jobs:
         os: [ubuntu-16.04, macOS-latest, windows-latest]
         python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
         include:
-          - { os: ubuntu-16.04, python-version: 2.7, python-abis: "cp27-cp27m" }
-          - { os: ubuntu-16.04, python-version: 2.7-unicode, python-abis: "cp27-cp27mu" }
-          - { os: ubuntu-16.04, python-version: 3.5, python-abis: "cp35-cp35m" }
           - { os: ubuntu-16.04, python-version: 3.6, python-abis: "cp36-cp36m" }
-          - { os: ubuntu-16.04, python-version: 3.7, python-abis: "cp37-cp37m" }
-          - { os: ubuntu-16.04, python-version: 3.8, python-abis: "cp38-cp38" }
-          - { os: windows-latest, python-version: 3.8, build-static: 1 }
         exclude:
           - { os: macOS-latest, python-version: 2.7-unicode }
           - { os: windows-latest, python-version: 2.7-unicode }
@@ -86,7 +80,8 @@ jobs:
       run: |
         docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
           ${{ env.img }} \
-            bash -exc 'wget -q "https://github.com/conda-forge/miniforge/releases/download/4.8.2-1/Miniforge3-4.8.2-1-Linux-aarch64.sh" -O archiconda.sh &&\
+            bash -exc 'yum install -y wget && \
+            wget -q "https://github.com/conda-forge/miniforge/releases/download/4.8.2-1/Miniforge3-4.8.2-1-Linux-aarch64.sh" -O archiconda.sh &&\
             chmod +x archiconda.sh && \
             ./archiconda.sh -b -p /opt/conda && \
             export PATH="/opt/conda/bin:$PATH" && \
