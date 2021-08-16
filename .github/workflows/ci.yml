@@ -86,7 +86,7 @@ jobs:
             ${{ env.py }} -m pip install --upgrade pip setuptools wheel coverage cython && \
             ${{ env.py }} -m pip install -r requirements.txt && \
             conda list && \
-            conda create --quiet --yes -n wheel python=$PYTHON && \
+            conda create --quiet --yes -n wheel python=${{ env.py }} && \
             conda activate wheel'
 
 
