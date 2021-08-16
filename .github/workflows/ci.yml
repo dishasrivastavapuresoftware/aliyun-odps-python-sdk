@@ -84,7 +84,7 @@ jobs:
             export PATH="/opt/conda/bin:$PATH" && \
             conda --version && \
             ${{ env.py }} -m pip install --upgrade pip setuptools wheel coverage cython && \
-            ${{ env.py }} -m pip nstall -r requirements.txt && \
+            ${{ env.py }} -m pip install -r requirements.txt && \
             conda list && \
             source ./.github/workflows/upload-packages.sh'
 
