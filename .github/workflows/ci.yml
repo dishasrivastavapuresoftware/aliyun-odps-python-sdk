@@ -86,8 +86,6 @@ jobs:
             ${{ env.py }} -m pip install --upgrade pip setuptools wheel coverage cython && \
             ${{ env.py }} -m pip install -r requirements.txt && \
             ${{ env.py }} setup.py bdist_wheel && \
-            conda list && \
-            conda create --quiet --yes -n wheel python=${{ matrix.pyver }} && \
-            conda activate wheel'
+            auditwheel repair -w dist/*.whl'
 
 
