@@ -1,11 +1,11 @@
 #!/bin/bash
 set -e
 
-if [ -z "$GITHUB_TAG_REF" ]; then
-  echo "Not on a tag, won't deploy to pypi"
-elif [ -n "$NO_DEPLOY" ]; then
-  echo "Not on a build config, won't deploy to pypi"
-else
+#if [ -z "$GITHUB_TAG_REF" ]; then
+ # echo "Not on a tag, won't deploy to pypi"
+#elif [ -n "$NO_DEPLOY" ]; then
+ # echo "Not on a build config, won't deploy to pypi"
+#else
   git clean -f -x
   source activate test
 
@@ -70,5 +70,5 @@ else
 
   python -m pip install twine
   python -m twine upload -r pypi --skip-existing dist/*
-fi
+#fi
 © 2021 GitHub, Inc.
