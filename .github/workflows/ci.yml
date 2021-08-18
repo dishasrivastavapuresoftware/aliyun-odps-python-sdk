@@ -86,6 +86,6 @@ jobs:
             ${{ env.py }} -m pip install --upgrade pip setuptools wheel coverage cython && \
             ${{ env.py }} -m pip install -r requirements.txt && \
             ${{ env.py }} setup.py bdist_wheel && \
-            auditwheel repair -w dist/*.whl'
+            auditwheel repair dist/*.whl'
 
 
