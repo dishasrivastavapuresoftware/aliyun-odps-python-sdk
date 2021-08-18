@@ -8,10 +8,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-16.04]
-        python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
+        os: [ubuntu-18.04]
+        python-version: [3.6, 3.7, 3.8]
         include:
-          - { os: ubuntu-16.04, python-version: 3.6, python-abis: "cp36-cp36m" }
+          - { os: ubuntu-18.04, python-version: 3.6, python-abis: "cp36-cp36m" }
+        exclude:
+          - { os: macOS-latest, python-version: 2.7-unicode }
+          - { os: windows-latest, python-version: 2.7-unicode }
 
     steps:
     - name: Check out code
